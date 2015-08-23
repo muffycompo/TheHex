@@ -8,13 +8,23 @@
       <library name="PHP">
         <CLASSES>
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/danielstjules/stringy" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/google/apiclient" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/illuminate/contracts" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/illuminate/support" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/pear/mail_mime" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/pear/pear_exception" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/danielstjules/stringy" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/google/apiclient" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/illuminate/contracts" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/illuminate/support" />
+          <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/pear/mail_mime" />
           <root url="file://$MODULE_DIR$/../../../../tools/composer/vendor/pear/pear_exception" />
         </SOURCES>

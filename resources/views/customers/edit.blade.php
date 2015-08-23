@@ -18,7 +18,7 @@
          <!--- Dob Field --->
          <div class="form-group">
              {!! Form::label('dob', 'Date of Birth:') !!}
-             {!! Form::text('dob', $customerdetail->profile->dob, ['class' => 'form-control']) !!}
+             {!! Form::text('dob', dobFormat($customerdetail->profile->dob), ['class' => 'form-control']) !!}
          </div>
          <!--- Gender Field --->
          <div class="form-group">

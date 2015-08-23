@@ -58,8 +58,8 @@
         <li class="dropdown">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders</a>
           <ul class="dropdown-menu">
-            <li><a href="#">New Order</a></li>
-            <li><a href="#">Order List</a></li>
+            <li>{!! link_to_route('order.new','New Order') !!}</li>
+            <li>{!! link_to_route('order.list','Order List') !!}</li>
           </ul>
         </li>
         <li class="dropdown">
@@ -87,7 +87,7 @@
 
 
 <div class="container">
-
+  @include('partials._notification')
   @yield('content')
 
 </div> <!-- /container -->
@@ -100,5 +100,9 @@
 <script src="/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="/js/ie10-viewport-bug-workaround.js"></script>
+<!-- This is only necessary if you do Flash::overlay('...') -->
+<script>
+  $('#flash-overlay-modal').modal();
+</script>
 </body>
 </html>

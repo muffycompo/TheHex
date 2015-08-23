@@ -25,8 +25,8 @@
                                 <td>{!! $customer->thc !!}</td>
                                 <td>{!! $customer->firstname !!}</td>
                                 <td>{!! $customer->lastname !!}</td>
-                                <td>{!! $customer->profile->gender_id !!}</td>
-                                <td>{!! $customer->profile->state_id !!}</td>
+                                <td>{!! expandGender($customer->profile->gender_id) !!}</td>
+                                <td>{!! expandState($customer->profile->state_id) !!}</td>
                                 <td>{!! $customer->phone !!}</td>
                                 <td>{!! link_to_route('customer.edit','Edit',$customer->id) !!}</td>
                             </tr>
