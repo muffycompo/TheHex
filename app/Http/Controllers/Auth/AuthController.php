@@ -7,9 +7,13 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+    protected $redirectPath = '/dashboard';
+    protected $loginPath = '/';
+    protected $username = 'username';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -26,11 +30,11 @@ class AuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout,home']);
+        $this->middleware('auth', ['except' => ['getLogout','getHome','getLogin','postLogin']]);
+        parent::__construct();
     }
 
     /**
@@ -42,9 +46,12 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:20',
-//            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email'    => 'email',
+            'phone'     => 'required|numeric',
+            'username'  => 'required|max:20|unique:users',
+            'password'  => 'required|min:5',
         ]);
     }
 
@@ -57,11 +64,14 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'username' => $data['username'],
+            'email' => Str::lower($data['email']),
             'password' => bcrypt($data['password']),
+            'firstname' => Str::title($data['firstname']),
+            'lastname' => Str::title($data['lastname']),
+            'phone'     => $data['phone'],
+            'role_id'  => $data['role'],
         ]);
     }
-
 
 }
