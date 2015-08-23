@@ -44,10 +44,15 @@ class CustomerController extends Controller
                 'guardian_phone' => $request->input('guardian_phone'),
                 'guardian_address' => $request->input('guardian_address'),
             ]);
+            if($this->profile){
+                flash()->success('Customer Added Successfully!');
+            } else {
+                flash()->error('An error occurred, try adding the Customer again!');
+            }
+        } else {
+            flash()->error('An error occurred, try adding the Customer again!');
         }
-//        return $customer->with('profile')->get();
-
-        return redirect()->route('customer.list');
+       return redirect()->route('customer.list');
     }
 
     public function getCustomerList(Customer $customer)
@@ -60,6 +65,24 @@ class CustomerController extends Controller
     {
         $customerdetail = $customer->with('profile')->whereId((int) $id)->first();
         return view('customers.edit')->with(compact('customerdetail'));
+    }
+
+    public function getCustomerDetail($id, Customer $customer)
+    {
+        $customerdetail = $customer->with('profile')->whereId((int) $id)->first();
+        return view('customers.detail')->with(compact('customerdetail'));
+    }
+
+    public function getCustomerDelete($id, Customer $customer)
+    {
+        $customerdetail = $customer->whereId((int) $id)->delete();
+
+        if(! $customerdetail){
+            flash()->error('An error occurred, try deleting the Customer again!');
+        } else {
+            flash()->success('Customer Deleted Successfully!');
+        }
+        return redirect()->back();
     }
 
     public function postCustomerEdit(NewCustomerRequest $request, Customer $customer, CustomerProfile $profile)
@@ -82,9 +105,11 @@ class CustomerController extends Controller
             'guardian_phone' => $request->input('guardian_phone'),
             'guardian_address' => $request->input('guardian_address'),
         ]);
-        // Flash Completion message here
-        flash()->info('Awesome!');
-//        return $customer->with('profile')->get();
+        if(! $this->customer && ! $this->profile){
+            flash()->error('An error occurred, try updating the Customer again!');
+        } else {
+            flash()->success('Customer Updated Successfully!');
+        }
         return redirect()->route('customer.list');
     }
 

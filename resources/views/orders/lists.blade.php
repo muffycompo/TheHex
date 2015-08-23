@@ -28,12 +28,12 @@
                                 <td>{!! $order->order_amount !!}</td>
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y H:i:s A') !!}</td>
-                                <td>{!! link_to_route('order.print','Edit',$order->id) !!}</td>
+                                <td>{!! link_to_route('order.print','Print',$order->id) !!}</td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7">No Customers Found!</td>
+                            <td colspan="7">No Orders Found!</td>
                         </tr>
                     @endif
 

@@ -65,6 +65,12 @@ function thcToCustomerId($thc)
     return $thc->id;
 }
 
+function auth_user_fullname()
+{
+    $auth_user = \Illuminate\Support\Facades\Auth::User();
+    return $auth_user->firstname . ' ' . $auth_user->lastname;
+}
+
 // Expansion Helpers
 function expandGender($id)
 {

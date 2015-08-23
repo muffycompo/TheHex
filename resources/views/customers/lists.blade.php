@@ -28,7 +28,11 @@
                                 <td>{!! expandGender($customer->profile->gender_id) !!}</td>
                                 <td>{!! expandState($customer->profile->state_id) !!}</td>
                                 <td>{!! $customer->phone !!}</td>
-                                <td>{!! link_to_route('customer.edit','Edit',$customer->id) !!}</td>
+                                <td>
+                                    {!! link_to_route('customer.edit','Edit',$customer->id) !!} |
+                                    {!! link_to_route('customer.detail','Detail',$customer->id) !!} |
+                                    {!! link_to_route('customer.delete','Delete',$customer->id) !!}
+                               </td>
                             </tr>
                         @endforeach
                     @else
