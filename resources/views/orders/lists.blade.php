@@ -22,9 +22,9 @@
                     @if($orders->count() > 0)
                         @foreach($orders as $order)
                             <tr>
-                                <td>{!! $order->customer->firstname !!}</td>
-                                <td>{!! $order->customer->lastname !!}</td>
-                                <td>{!! $order->customer->phone !!}</td>
+                                <td>{!! isset($order->customer->firstname) ? $order->customer->firstname : 'Deleted' !!}</td>
+                                <td>{!! isset($order->customer->lastname) ? $order->customer->firstname : 'Deleted' !!}</td>
+                                <td>{!! isset($order->customer->phone) ? $order->customer->firstname : 'Deleted' !!}</td>
                                 <td>{!! $order->order_amount !!}</td>
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y H:i:s A') !!}</td>

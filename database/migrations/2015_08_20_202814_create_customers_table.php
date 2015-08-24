@@ -19,6 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('lastname',45);
             $table->string('email',255);
             $table->string('phone',20);
+            $table->softDeletes();
         });
 
     }

@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('customer_id')->unsigned();
             $table->integer('order_category_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::table('orders',function(Blueprint $table){
             $table->foreign('customer_id')->references('id')

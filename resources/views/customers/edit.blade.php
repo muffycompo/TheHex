@@ -65,6 +65,7 @@
          <!--- Add Customer Field --->
          <div class="form-group">
              {!! Form::submit('Update Customer', ['class' => 'btn btn-primary']) !!}
+             {!! link_to_route('customer.list','Cancel',[],['class' => 'btn btn-danger']) !!}
              {!! Form::hidden('customer_id', $customerdetail->id) !!}
          </div>
      @if($errors->any())

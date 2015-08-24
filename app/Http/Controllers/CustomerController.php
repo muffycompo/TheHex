@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\CustomerProfile;
 use App\Http\Requests\NewCustomerRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class CustomerController extends Controller
@@ -111,6 +112,22 @@ class CustomerController extends Controller
             flash()->success('Customer Updated Successfully!');
         }
         return redirect()->route('customer.list');
+    }
+
+    public function postCustomerDetailPhoto($id, Request $request, CustomerProfile $profile)
+    {
+        $this->validate($request,[
+            'photo' => 'required|mimes:jpg,jpeg,png,bmp'
+        ]);
+
+        $file = $request->file('photo');
+        $extension = $file->getClientOriginalExtension();
+        $name = 'customer_photo_' . $id . '.' . $extension;
+        $file->move('customers/photos',$name);
+
+        $demo = $profile->where('customer_id',(int) $id)->update(['photo_path' => '/customers/photos/' . $name]);
+
+        return $demo;
     }
 
 }

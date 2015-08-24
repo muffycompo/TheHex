@@ -2,7 +2,7 @@
 
 @section('content')
  <div class="row">
-     <h1>{!! $customerdetail->firstname . ' ' . $customerdetail->lastname !!}</h1>
+     <h1>Customer: {!! $customerdetail->firstname . ' ' . $customerdetail->lastname !!}</h1>
      <hr>
      <div class="col-md-6">
          <table class="table table-bordered">
@@ -67,10 +67,50 @@
          <table class="table">
              <tbody>
                  <tr>
-                     <td><img src="/images/profile_placeholder.png" alt="Profile Photo"></td>
+                     <td>
+                         @if(!empty($customerdetail->profile->photo_path))
+                             <img src="{{ $customerdetail->profile->photo_path }}" alt="Profile Photo" height="150">
+                         @else
+                             <img src="/images/profile_placeholder.png" alt="Profile Photo">
+                         @endif
+                     </td>
                  </tr>
              </tbody>
          </table>
+         <div class="row">
+             <div class="col-md-5">
+                 {!! Form::open(['route' => ['customer.photo',$customerdetail->id], 'class' => 'dropzone', 'id' => 'customerPhotoForm']) !!}
+                 <div class="dz-message">
+                     <p class="text-center">
+                         Upload Customer Photo<br>
+                         <span class="text-danger">(You can drag &amp; drop here)</span>
+                     </p>
+                 </div>
+                 {!! Form::close() !!}
+             </div>
+         </div>
      </div>
  </div>
+@stop
+
+@section('scripts.footer')
+    <script src="/js/dropzone.js"></script>
+    <script>
+        Dropzone.options.customerPhotoForm = {
+            paramName: 'photo',
+            maxFilesize: 0.5,
+            uploadMultiple: false,
+            maxFiles: 1,
+            acceptedFiles: '.jpg, .jpeg, .png, .bmp',
+            init: function() {
+                this.on("maxfilesexceeded", function (file) {
+                    this.removeFile(file);
+                });
+                this.on("success",function(file){
+                    // Maybe find a cleaner way
+                    location.reload(true);
+                });
+            }
+        };
+    </script>
 @stop

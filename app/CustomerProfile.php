@@ -8,7 +8,7 @@ class CustomerProfile extends Model
 {
     protected $table = 'customer_profiles';
 
-    protected $fillable = ['customer_id', 'dob', 'gender_id', 'state_id', 'hostel_address', 'guardian_name', 'guardian_phone', 'guardian_address'];
+    protected $fillable = ['customer_id', 'dob', 'gender_id', 'state_id', 'hostel_address', 'guardian_name', 'guardian_phone', 'guardian_address', 'photo_path'];
 
     public function customer()
     {

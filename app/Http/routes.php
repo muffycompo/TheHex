@@ -23,6 +23,7 @@ get('admin/customer/detail/{id}',['as' => 'customer.detail', 'uses' => 'Customer
 get('admin/customer/delete/{id}',['as' => 'customer.delete', 'uses' => 'CustomerController@getCustomerDelete']);
 post('admin/customer',['as' => 'customer.post_new', 'uses' => 'CustomerController@postNewCustomer']);
 post('admin/customer/edit',['as' => 'customer.post_edit', 'uses' => 'CustomerController@postCustomerEdit']);
+post('admin/customer/detail/{id}/photo',['as' => 'customer.photo', 'uses' => 'CustomerController@postCustomerDetailPhoto']);
 
 // Orders Routes
 get('admin/order/new',['as' => 'order.new', 'uses' => 'OrderController@getNewOrder']);
