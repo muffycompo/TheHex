@@ -26,7 +26,6 @@ class CustomerController extends Controller
     public function postNewCustomer(NewCustomerRequest $request, Customer $customer, CustomerProfile $profile)
     {
         $this->customer = $customer->create([
-            'thc' => str_random(6),
             'firstname' => Str::title($request->input('firstname')),
             'lastname' => Str::title($request->input('lastname')),
             'email' => Str::lower($request->input('email')),
@@ -45,6 +44,8 @@ class CustomerController extends Controller
                 'guardian_phone' => $request->input('guardian_phone'),
                 'guardian_address' => $request->input('guardian_address'),
             ]);
+            // Add Customer THC generated code
+            $customer->whereId($this->customer->id)->update(['thc' => thcFormater($this->customer->id)]);
             if($this->profile){
                 flash()->success('Customer Added Successfully!');
             } else {

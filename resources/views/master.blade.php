@@ -73,7 +73,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{!! auth_user_fullname() !!} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{!! authUserFullname() !!} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('user.get_profile','Profile',[$user->id]) !!}</li>
             <li role="separator" class="divider"></li>

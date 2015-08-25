@@ -121,6 +121,7 @@ class HomeController extends Controller
 
     public function demo()
     {
-        return Customer::with('profile')->get();
+        $input = '999';
+        return thcFormater($input);
     }
 }
