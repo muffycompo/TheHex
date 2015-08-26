@@ -5,9 +5,11 @@ get('dashboard',['as' => 'dashboard', 'uses' => 'HomeController@dashboard']);
 get('admin/users',['as' => 'user.list', 'uses' => 'HomeController@users']);
 get('admin/edit/{id}',['as' => 'user.edit', 'uses' => 'HomeController@getEdit']);
 post('admin/edit',['as' => 'user.post_edit', 'uses' => 'HomeController@postEdit']);
-
+get('admin/user/cashier',['as' => 'cashierdesk', 'uses' => 'HomeController@getCashierDesk']);
 get('admin/profile/{id}',['as' => 'user.get_profile', 'uses' => 'HomeController@getProfileEdit']);
 post('admin/profile/edit',['as' => 'user.post_profile', 'uses' => 'HomeController@postProfileEdit']);
+
+get('admin/user/customerforcashier',['as' => 'customerforcashier', 'uses' => 'HomeController@getCustomerForCashierDesk']);
 
 get('demo',['as' => 'demo', 'uses' => 'HomeController@demo']);
 

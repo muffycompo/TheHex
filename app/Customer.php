@@ -22,4 +22,10 @@ class Customer extends Model
     {
         return $this->hasOne('App\Order');
     }
+
+    public function payment()
+    {
+        return $this->hasOne('App\Payment');
+    }
+
 }

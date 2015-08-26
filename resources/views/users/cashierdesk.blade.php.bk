@@ -1,0 +1,71 @@
+@extends('master')
+<style>
+    #outdiv
+    {
+        width:318px;
+        height:240px;
+        border: solid;
+        border-width: 3px 3px 3px 3px;
+    }
+    #compat{
+        display: none;
+    }
+    #qr-canvas{
+        display:none;
+    }
+    #v{
+        width:100%;
+        height:100%;
+    }
+</style>
+@section('content')
+
+    <div class="row">
+        <h1>Cashier Desk</h1>
+        <div class="col-md-4">
+            <div id="outdiv"></div>
+            <div id="compat"></div>
+        </div>
+        <div class="col-md-7 col-md-offset-1">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td colspan="2" id="customer_photo" class="text-right">
+                        <img src="/images/profile_placeholder.png" alt="Profile Photo" height="150">
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap>THC</td>
+                    <td nowrap id="thc"></td>
+                </tr>
+                <tr>
+                    <td nowrap>First Name:</td>
+                    <td id="firstname"></td>
+                </tr>
+                <tr>
+                    <td nowrap>Last Name:</td>
+                    <td id="lastname"> </td>
+                </tr>
+                <tr>
+                    <td nowrap>Phone:</td>
+                    <td id="phone"></td>
+                </tr>
+                <tr>
+                    <td nowrap>Hostel Address:</td>
+                    <td id="hostel_address"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            {{--<div id="result"></div>--}}
+            <canvas id="qr-canvas" width="800" height="600"></canvas>
+        </div>
+    </div>
+
+@stop
+
+@section('scripts.footer')
+    <script src="/js/qr/llqrcode.js"></script>
+    <script src="/js/qr/webqr.js"></script>
+    <script src="/js/qr/app.js"></script>
+@stop

@@ -53,6 +53,7 @@
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Customers</a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('customer.new','New Customer') !!}</li>
+            <li>{!! link_to_route('cashierdesk','Cashier Desk') !!}</li>
             <li>{!! link_to_route('customer.list','Customer List') !!}</li>
           </ul>
         </li>

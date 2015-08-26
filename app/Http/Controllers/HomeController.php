@@ -7,7 +7,9 @@ use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\NewUserRequest;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class HomeController extends Controller
 {
@@ -121,7 +123,24 @@ class HomeController extends Controller
 
     public function demo()
     {
-        $input = '999';
-        return thcFormater($input);
+//        $input = '999';
+//        return thcFormater($input);
+        $code = QrCode::size(150)->generate('THC0002');
+        return $code;
+    }
+
+    public function getCashierDesk()
+    {
+        return view('users.cashierdesk');
+    }
+
+    public function getCustomerForCashierDesk(Request $request, Customer $customer)
+    {
+        if($request->ajax()){
+
+          $thc_customer = $customer->with('profile')->where('thc',$request->input('thc'))->first();
+          return $thc_customer;
+        }
+        return ['error' => 'An error occurred!'];
     }
 }
