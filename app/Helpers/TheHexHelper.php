@@ -71,10 +71,21 @@ function authUserFullname()
     return $auth_user->firstname . ' ' . $auth_user->lastname;
 }
 
+function customerFullname($id)
+{
+    $customer = DB::table('customers')->where('id',(int) $id)->first(['firstname','lastname']);
+    return $customer->firstname . ' ' . $customer->lastname;
+}
+
 function thcFormater($id)
 {
     // $numbers = str_pad($input,7,'0',STR_PAD_LEFT);
     return  'THC' . sprintf("%'.04d", (int) $id); // Faster
+}
+
+function thcReceiptNoGenerator($id)
+{
+    return  sprintf("%'.04d", (int) $id) . 'TH'; // Faster
 }
 
 function nairaFormater($amount)

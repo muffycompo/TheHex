@@ -12,7 +12,7 @@
          </div>
          <!--- Order Amount Field --->
          <div class="form-group">
-             {!! Form::label('order_amount', 'Order Amount:') !!}
+             {!! Form::label('order_amount', 'Order Amount (&#8358;):') !!}
              {!! Form::text('order_amount', null, ['class' => 'form-control']) !!}
          </div>
          <!--- Order Type Field --->

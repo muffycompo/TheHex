@@ -43,6 +43,7 @@ class OrderController extends Controller
             ]);
 
             if($this->orders->id){
+                $order->whereId($this->orders->id)->update(['receipt_number' => thcReceiptNoGenerator($this->orders->id)]);
                 flash()->success('Order Completed Successfully!');
             } else {
                 flash()->error('An error occurred, try placing the Order again!');
@@ -87,6 +88,7 @@ class OrderController extends Controller
                     ]);
 
                     if($this->orders->id){
+                        $order->whereId($this->orders->id)->update(['receipt_number' => thcReceiptNoGenerator($this->orders->id)]);
                         return ([
                             'message' => 'Your order of '. nairaFormater($order_amount) .' has been completed successfully!',
                             'title'   => 'Order Complete!',
@@ -120,13 +122,14 @@ class OrderController extends Controller
 
     public function getOrderList(Order $order)
     {
-        $orders = $order->paginate(25);
+        $orders = $order->orderBy('created_at','DESC')->paginate(25);
         return view('orders.lists')->with(compact('orders'));
     }
 
-    public function getOrderPrint($id)
+    public function getOrderPrint($id, Order $order)
     {
-        return view('orders.print')->with(compact('id'));
+        $customer_order = $order->whereId((int) $id)->first();
+        return view('orders.print')->with(compact('customer_order'));
     }
 
 }

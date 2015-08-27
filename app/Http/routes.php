@@ -23,6 +23,7 @@ get('admin/customer/new',['as' => 'customer.new', 'uses' => 'CustomerController@
 get('admin/customers',['as' => 'customer.list', 'uses' => 'CustomerController@getCustomerList']);
 get('admin/customer/edit/{id}',['as' => 'customer.edit', 'uses' => 'CustomerController@getCustomerEdit']);
 get('admin/customer/detail/{id}',['as' => 'customer.detail', 'uses' => 'CustomerController@getCustomerDetail']);
+get('admin/customer/order/{id}',['as' => 'customer.orderlist', 'uses' => 'CustomerController@getCustomerOrder']);
 get('admin/customer/delete/{id}',['as' => 'customer.delete', 'uses' => 'CustomerController@getCustomerDelete']);
 post('admin/customer',['as' => 'customer.post_new', 'uses' => 'CustomerController@postNewCustomer']);
 post('admin/customer/edit',['as' => 'customer.post_edit', 'uses' => 'CustomerController@postCustomerEdit']);

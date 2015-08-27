@@ -13,6 +13,11 @@ function read(a)
 
 // Customer Details Callback
 function customer_details(data){
+
+    // Audio Experiment
+    var audio = $('#audioBeep').attr('src','/audio/beep.mp3')[0];
+    audio.play();
+
     var customer_photo = $('#customer_photo');
     var thc = $('#thc');
     var account_balance = $('#account_balance');

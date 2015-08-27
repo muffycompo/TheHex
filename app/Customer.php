@@ -20,7 +20,8 @@ class Customer extends Model
 
     public function order()
     {
-        return $this->hasOne('App\Order');
+//        return $this->hasOne('App\Order');
+        return $this->hasMany('App\Order');
     }
 
     public function payment()

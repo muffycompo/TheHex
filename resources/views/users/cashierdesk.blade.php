@@ -54,7 +54,7 @@
                     {!! Form::open(['id' => 'orderForm']) !!}
                             <!--- Order Amount Field --->
                     <div class="form-group">
-                        {!! Form::label('order_amount', 'Order Amount:') !!}
+                        {!! Form::label('order_amount', 'Order Amount (&#8358;):') !!}
                         {!! Form::text('order_amount', null, ['class' => 'form-control', 'id' => 'orderAmount']) !!}
                     </div>
                     <!--- Order Amount Field --->
@@ -66,6 +66,7 @@
                     <div class="form-group">
                         {!! Form::submit('Order', ['class' => 'btn btn-primary', 'id' => 'orderBtn']) !!}
                         {!! Form::hidden('customer_id',null,['id'=>'customerId']) !!}
+                        <audio id="audioBeep"></audio>
                     </div>
                     {!! Form::close() !!}
                 </div>

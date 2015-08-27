@@ -13,7 +13,7 @@
                      <th>First Name</th>
                      <th>Last Name</th>
                      <th>Gender</th>
-                     <th>Acc. Balance</th>
+                     <th>Acc. Balance (&#8358;)</th>
                      <th>Phone</th>
                      <th>Action</th>
                  </tr>
@@ -31,6 +31,7 @@
                                 <td>
                                     {!! link_to_route('customer.edit','Edit',$customer->id) !!} |
                                     {!! link_to_route('customer.detail','Detail',$customer->id) !!} |
+                                    {!! link_to_route('customer.orderlist','Orders',$customer->id) !!} |
                                     {!! link_to_route('customer.delete','Delete',$customer->id) !!}
                                </td>
                             </tr>

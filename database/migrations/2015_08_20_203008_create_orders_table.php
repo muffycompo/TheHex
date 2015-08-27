@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_amount')->length(20)->unsigned();
+            $table->string('receipt_number',30);
             $table->integer('customer_id')->unsigned();
             $table->integer('order_category_id')->unsigned();
             $table->timestamps();

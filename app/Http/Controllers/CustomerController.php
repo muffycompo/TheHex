@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Order;
 use App\Payment;
 use App\CustomerProfile;
 use App\Http\Requests\NewCustomerRequest;
@@ -81,6 +82,12 @@ class CustomerController extends Controller
     {
         $customerdetail = $customer->with('profile','payment')->whereId((int) $id)->first();
         return view('customers.detail')->with(compact('customerdetail'));
+    }
+
+    public function getCustomerOrder($id, Order $order)
+    {
+        $orders = $order->where('customer_id',(int) $id)->orderBy('created_at','DESC')->paginate(25);
+        return view('customers.orders')->with(compact('orders'))->with('id',$id);
     }
 
     public function getCustomerDelete($id, Customer $customer)
