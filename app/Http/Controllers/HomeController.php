@@ -138,9 +138,10 @@ class HomeController extends Controller
     {
         if($request->ajax()){
 
-          $thc_customer = $customer->with('profile')->where('thc',$request->input('thc'))->first();
+          $thc_customer = $customer->with('profile','payment')->where('thc',$request->input('thc'))->first();
           return $thc_customer;
         }
         return ['error' => 'An error occurred!'];
     }
+
 }

@@ -10,6 +10,7 @@ get('admin/profile/{id}',['as' => 'user.get_profile', 'uses' => 'HomeController@
 post('admin/profile/edit',['as' => 'user.post_profile', 'uses' => 'HomeController@postProfileEdit']);
 
 get('admin/user/customerforcashier',['as' => 'customerforcashier', 'uses' => 'HomeController@getCustomerForCashierDesk']);
+get('admin/user/order',['as' => 'customer.order', 'uses' => 'OrderController@getCustomerNewOrder']);
 
 get('demo',['as' => 'demo', 'uses' => 'HomeController@demo']);
 

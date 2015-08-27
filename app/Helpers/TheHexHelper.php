@@ -77,6 +77,11 @@ function thcFormater($id)
     return  'THC' . sprintf("%'.04d", (int) $id); // Faster
 }
 
+function nairaFormater($amount)
+{
+    return '&#8358; ' . number_format($amount);
+}
+
 // Expansion Helpers
 function expandGender($id)
 {

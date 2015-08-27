@@ -12,6 +12,10 @@
                  <td>{!! $customerdetail->thc !!}</td>
              </tr>
              <tr>
+                 <td nowrap>Account Balance</td>
+                 <td>{!! nairaFormater($customerdetail->payment->account_balance) !!}</td>
+             </tr>
+             <tr>
                  <td nowrap>First Name:</td>
                  <td>{!! $customerdetail->firstname !!}</td>
              </tr>
@@ -83,7 +87,7 @@
                  <div class="dz-message">
                      <p class="text-center">
                          Upload Customer Photo<br>
-                         <span class="text-danger">(You can drag &amp; drop here)</span>
+                         <span class="text-danger">(Click or drag &amp; drop here)</span>
                      </p>
                  </div>
                  {!! Form::close() !!}

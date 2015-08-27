@@ -28,7 +28,8 @@ class NewCustomerRequest extends Request
             'lastname'=> 'required|max:45',
             'dob'=> 'required',
             'phone'=> 'required',
-            'hostel_address'=> 'required'
+            'hostel_address'=> 'required',
+            'account_balance' => 'numeric'
         ];
     }
 }

@@ -62,6 +62,14 @@
              {!! Form::label('guardian_address', 'Guardian Address:') !!}
              {!! Form::textarea('guardian_address', $customerdetail->profile->guardian_address, ['class' => 'form-control']) !!}
          </div>
+         <hr>
+         <h3>Initial Account Balance</h3>
+         <!--- Account Balance Field --->
+         <div class="form-group">
+             {!! Form::label('account_balance', 'Account Balance (&#8358;):') !!}
+             {!! Form::text('account_balance', $customerdetail->payment->account_balance, ['class' => 'form-control']) !!}
+         </div>
+
          <!--- Add Customer Field --->
          <div class="form-group">
              {!! Form::submit('Update Customer', ['class' => 'btn btn-primary']) !!}

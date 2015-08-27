@@ -10,7 +10,7 @@ class Payment extends Model
     use SoftDeletes;
 
     protected $table = 'payments';
-    protected $fillable = [];
+    protected $fillable = ['customer_id','start_balance','account_balance'];
     protected $dates = ['deleted_at'];
 
     public function customer()

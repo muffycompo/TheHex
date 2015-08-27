@@ -16,7 +16,9 @@
 
   <!-- Custom styles for this template -->
   <link href="/css/navbar-static-top.css" rel="stylesheet">
+  <link href="/css/sweetalert.css" rel="stylesheet">
   <link href="/css/dropzone.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -99,6 +101,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/sweetalert.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="/js/ie10-viewport-bug-workaround.js"></script>
 {{--<!-- This is only necessary if you do Flash::overlay('...') -->--}}

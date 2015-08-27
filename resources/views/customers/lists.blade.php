@@ -13,7 +13,7 @@
                      <th>First Name</th>
                      <th>Last Name</th>
                      <th>Gender</th>
-                     <th>State</th>
+                     <th>Acc. Balance</th>
                      <th>Phone</th>
                      <th>Action</th>
                  </tr>
@@ -26,7 +26,7 @@
                                 <td>{!! $customer->firstname !!}</td>
                                 <td>{!! $customer->lastname !!}</td>
                                 <td>{!! expandGender($customer->profile->gender_id) !!}</td>
-                                <td>{!! expandState($customer->profile->state_id) !!}</td>
+                                <td>{!! nairaFormater($customer->payment->account_balance) !!}</td>
                                 <td>{!! $customer->phone !!}</td>
                                 <td>
                                     {!! link_to_route('customer.edit','Edit',$customer->id) !!} |
