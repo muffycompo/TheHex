@@ -93,6 +93,22 @@ function nairaFormater($amount)
     return '&#8358; ' . number_format($amount);
 }
 
+function imageToBase64($path)
+{
+    $type = pathinfo($path, PATHINFO_EXTENSION);
+    $data = file_get_contents($path);
+    $imgdata = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    // Unlink / delete image file
+    return $imgdata;
+}
+
+function generateQRCode($thc)
+{
+    $path = base_path('public') . DIRECTORY_SEPARATOR . 'customers' . DIRECTORY_SEPARATOR . 'qrcodes' . DIRECTORY_SEPARATOR . $thc .'.png';
+    $code = \SimpleSoftwareIO\QrCode\Facades\QrCode::format('png')->size(150)->generate($thc, $path);
+    return $code;
+}
+
 // Expansion Helpers
 function expandGender($id)
 {

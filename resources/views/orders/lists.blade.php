@@ -25,10 +25,13 @@
                                 <td>{!! isset($order->customer->firstname) ? $order->customer->firstname : 'Deleted' !!}</td>
                                 <td>{!! isset($order->customer->lastname) ? $order->customer->lastname : 'Deleted' !!}</td>
                                 <td>{!! isset($order->customer->phone) ? $order->customer->phone : 'Deleted' !!}</td>
-                                <td>{!! $order->order_amount !!}</td>
+                                <td>{!! nairaFormater($order->order_amount) !!}</td>
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
-                                <td>{!! link_to_route('order.print','Print',$order->id) !!}</td>
+                                <td>
+                                    {!! link_to_route('order.print','Print',$order->id) !!} |
+                                    {!! link_to_route('order.cancel','Cancel',$order->id) !!}
+                                </td>
                             </tr>
                         @endforeach
                     @else

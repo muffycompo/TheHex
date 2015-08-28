@@ -88,11 +88,9 @@
   </div>
 </nav>
 
-
 <div class="container">
   @include('partials._notification')
   @yield('content')
-
 </div> <!-- /container -->
 
 

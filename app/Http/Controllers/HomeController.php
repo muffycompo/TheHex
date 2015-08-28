@@ -123,10 +123,10 @@ class HomeController extends Controller
 
     public function demo()
     {
-//        $input = '999';
-//        return thcFormater($input);
-        $code = QrCode::size(150)->generate('THC0002');
-        return $code;
+
+        return generateQRCode('THC0001');
+//        $code = QrCode::size(150)->generate('THC0002');
+//        return $code;
     }
 
     public function getCashierDesk()

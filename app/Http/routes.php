@@ -33,6 +33,7 @@ post('admin/customer/detail/{id}/photo',['as' => 'customer.photo', 'uses' => 'Cu
 get('admin/order/new',['as' => 'order.new', 'uses' => 'OrderController@getNewOrder']);
 get('admin/orders',['as' => 'order.list', 'uses' => 'OrderController@getOrderList']);
 get('admin/order/print/{id}',['as' => 'order.print', 'uses' => 'OrderController@getOrderPrint']);
+get('admin/order/cancel/{id}',['as' => 'order.cancel', 'uses' => 'OrderController@getOrderCancel']);
 post('admin/order',['as' => 'order.post_new', 'uses' => 'OrderController@postNewOrder']);
 
 

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewOrderRequest;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class OrderController extends Controller
 {
@@ -130,6 +132,22 @@ class OrderController extends Controller
     {
         $customer_order = $order->whereId((int) $id)->first();
         return view('orders.print')->with(compact('customer_order'));
+    }
+
+    public function getOrderCancel($id, Order $order, Payment $payment)
+    {
+        $customer_order = $order->whereId((int) $id)->first();
+        $amount = $customer_order->order_amount;
+        $customer_id = $customer_order->customer_id;
+        $delete = $order->whereId((int) $id)->delete();
+        if($delete){
+//            ->increment('votes', 5);
+            $payment->where('customer_id',(int) $id)->increment('account_balance',$amount);
+            flash()->success('Order #'. $id .' has been cancelled and '. nairaFormater($amount) .' refunded to ' . customerFullname($customer_id) . '!');
+        } else {
+            flash()->error('An error occurred while cancelling Order #' . $id . '!');
+        }
+        return redirect()->back();
     }
 
 }

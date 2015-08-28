@@ -53,8 +53,15 @@ class CustomerController extends Controller
                 'start_balance' => empty($request->input('account_balance')) ? 0 : $request->input('account_balance'),
                 'account_balance' => empty($request->input('account_balance')) ? 0 : $request->input('account_balance'),
             ]);
+            // Generate THC Code
+            $thc_code = thcFormater($this->customer->id);
+            // Generate QR Code
+            generateQRCode($thc_code);
             // Add Customer THC generated code
-            $customer->whereId($this->customer->id)->update(['thc' => thcFormater($this->customer->id)]);
+            $customer->whereId($this->customer->id)->update([
+                'thc' => $thc_code,
+                'qrcode' => '/customers/qrcodes/' . $thc_code . '.png'
+            ]);
             if($this->profile){
                 flash()->success('Customer Added Successfully!');
             } else {

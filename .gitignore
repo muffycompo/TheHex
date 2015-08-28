@@ -4,3 +4,5 @@ Homestead.yaml
 Homestead.json
 .env
 .idea/workspace.xml
+/public/customers/photos/*
+/public/customers/qrcodes/*

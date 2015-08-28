@@ -62,8 +62,8 @@
              </tbody>
          </table>
          <p>
-             {!! link_to_route('customer.edit','Edit',$customerdetail->id,['class' => 'btn btn-primary']) !!}
-             {!! link_to_route('customer.list','Back',[],['class' => 'btn btn-danger']) !!}
+             {!! link_to_route('customer.edit','Edit',$customerdetail->id,['class' => 'btn btn-primary hidden-print']) !!}
+             {!! link_to_route('customer.list','Back',[],['class' => 'btn btn-danger hidden-print']) !!}
          </p>
 
      </div>
@@ -78,10 +78,13 @@
                              <img src="/images/profile_placeholder.png" alt="Profile Photo">
                          @endif
                      </td>
+                     <td class="pull-right">
+                         <img src="{!! $customerdetail->qrcode !!}" alt="QR Code">
+                     </td>
                  </tr>
              </tbody>
          </table>
-         <div class="row">
+         <div class="row hidden-print">
              <div class="col-md-5">
                  {!! Form::open(['route' => ['customer.photo',$customerdetail->id], 'class' => 'dropzone', 'id' => 'customerPhotoForm']) !!}
                  <div class="dz-message">
