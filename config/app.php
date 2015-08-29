@@ -149,7 +149,8 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Bican\Roles\RolesServiceProvider::class,
 
     ],
 

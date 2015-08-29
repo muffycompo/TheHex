@@ -44,12 +44,14 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>{!! link_to_route('dashboard','Dashboard') !!}</li>
+        @role('admin')
         <li class="dropdown">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('auth.signup','New User') !!}</li>
             <li>{!! link_to_route('user.list','User List') !!}</li>
           </ul>
+          @endrole
         </li>
         <li class="dropdown">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Customers</a>
@@ -66,6 +68,7 @@
             <li>{!! link_to_route('order.list','Order List') !!}</li>
           </ul>
         </li>
+        @role('admin')
         <li class="dropdown">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rollovers</a>
           <ul class="dropdown-menu">
@@ -73,6 +76,7 @@
             <li><a href="#">Rollover List</a></li>
           </ul>
         </li>
+        @endrole
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

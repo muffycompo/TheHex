@@ -77,7 +77,7 @@
                     <a href="javascript:if(window.print)window.print()" class="btn btn-success hidden-print">
                         Print Receipt <span class="glyphicon glyphicon-print"></span>
                     </a>
-                    {!! link_to_route('order.list','Back',[],['class' => 'btn btn-danger hidden-print']) !!}
+                    <a href="{!! URL::previous() !!}" class="btn btn-danger hidden-print">Back</a>
                 </div>
 
             </div>

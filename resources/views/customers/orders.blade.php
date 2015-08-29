@@ -12,6 +12,7 @@
                      <th>Order Type</th>
                      <th>Order Date</th>
                      <th>Amount (&#8358;)</th>
+                     <th>Action</th>
                  </tr>
                  </thead>
                  <tbody>
@@ -21,6 +22,7 @@
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
                                 <td>{!! $order->order_amount !!}</td>
+                                <td>{!! link_to_route('order.print','Print',$order->id) !!}</td>
                             </tr>
                         @endforeach
                     @else

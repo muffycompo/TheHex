@@ -29,8 +29,10 @@
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
                                 <td>
-                                    {!! link_to_route('order.print','Print',$order->id) !!} |
-                                    {!! link_to_route('order.cancel','Cancel',$order->id) !!}
+                                    {!! link_to_route('order.print','Print',$order->id) !!}
+                                    @role('admin')
+                                    | {!! link_to_route('order.cancel','Cancel',$order->id) !!}
+                                    @endrole
                                 </td>
                             </tr>
                         @endforeach

@@ -31,8 +31,10 @@
                                 <td>
                                     {!! link_to_route('customer.edit','Edit',$customer->id) !!} |
                                     {!! link_to_route('customer.detail','Detail',$customer->id) !!} |
-                                    {!! link_to_route('customer.orderlist','Orders',$customer->id) !!} |
-                                    {!! link_to_route('customer.delete','Delete',$customer->id) !!}
+                                    {!! link_to_route('customer.orderlist','Orders',$customer->id) !!}
+                                    @role('admin')
+                                    | {!! link_to_route('customer.delete','Delete',$customer->id) !!}
+                                    @endrole
                                </td>
                             </tr>
                         @endforeach

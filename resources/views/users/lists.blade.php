@@ -27,7 +27,7 @@
                                 <td>{!! $user->lastname !!}</td>
                                 <td>{!! $user->email !!}</td>
                                 <td>{!! $user->phone !!}</td>
-                                <td>{!! $user->role->role_name !!}</td>
+                                <td>{!! $user->role->name !!}</td>
                                 <td>{!! link_to_route('user.edit','Edit',$user->id) !!}</td>
                             </tr>
                         @endforeach

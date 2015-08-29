@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
-use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\EditUserProfileRequest;
+use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\NewUserRequest;
 use App\User;
+use Bican\Roles\Exceptions\PermissionDeniedException;
+use Bican\Roles\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Bican\Roles\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -43,6 +45,9 @@ class HomeController extends Controller
 
     public function getProfileEdit($id)
     {
+        if($this->loggedInUser->id != (int) $id){
+            throw new PermissionDeniedException(new Permission());
+        }
         $userdetail = User::whereId((int) $id)->first();
         return view('users.profile')->with(compact('userdetail'));
     }
@@ -55,6 +60,7 @@ class HomeController extends Controller
 
     public function postNewUser(NewUserRequest $request, User $users)
     {
+        $role_id = $request->input('role');
         $new_users = $users->create([
             'username' => $request->input('username'),
             'email' => Str::lower($request->input('email')),
@@ -62,10 +68,12 @@ class HomeController extends Controller
             'firstname' => Str::title($request->input('firstname')),
             'lastname' => Str::title($request->input('lastname')),
             'phone'     => $request->input('phone'),
-            'role_id'  => $request->input('role'),
+            'role_id'  => $role_id,
         ]);
 
         if($new_users){
+            $role = Role::find($role_id);
+            $new_users->attachRole($role);
             flash()->success('User Added Successfully!');
         } else {
             flash()->error('An error occurred, try adding the User again!');
@@ -74,22 +82,30 @@ class HomeController extends Controller
 
     }
 
-    public function postEdit(EditUserRequest $request)
+    public function postEdit(EditUserRequest $request, User $users)
     {
         $data = $request->all();
+        $role_id = (int)$data['role'];
+        $user_id = $data['user_id'];
         $update = [
             'firstname' => Str::title($data['firstname']),
             'lastname' => Str::title($data['lastname']),
             'email' => Str::lower($data['email']),
             'phone' => $data['phone'],
-            'role_id' => (int)$data['role'],
+            'role_id' => $role_id,
         ];
         if(!empty($data['password'])){
             $update['password'] = bcrypt($data['password']);
         }
-        $user_update = User::whereId((int) $data['user_id'])->update($update);
+        $user_update = $users->whereId((int) $user_id)->update($update);
 
         if($user_update){
+            $role = Role::find($role_id);
+            $users->detachAllRoles();
+
+            $adminUser = $users->find($user_id);
+            $adminUser->attachRole($role);
+
             flash()->success('User Updated Successfully!');
         } else {
             flash()->error('An error occurred, try updating the User again!');
@@ -123,7 +139,6 @@ class HomeController extends Controller
 
     public function demo()
     {
-
         return generateQRCode('THC0001');
 //        $code = QrCode::size(150)->generate('THC0002');
 //        return $code;

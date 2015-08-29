@@ -43,7 +43,7 @@ function rolesDropDown($field_name,$selection = null,$attributes = [])
     $roles = DB::table('roles')->get();
     if(count($roles) > 0){
         foreach($roles as $role){
-            $options[$role->id] = $role->role_name;
+            $options[$role->id] = $role->name;
         }
     }
     return Form::select($field_name, $options, $selection, $attributes);

@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use Bican\Roles\Exceptions\LevelDeniedException;
+use Bican\Roles\Exceptions\PermissionDeniedException;
+use Bican\Roles\Exceptions\RoleDeniedException;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -45,6 +48,23 @@ class Handler extends ExceptionHandler
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
+
+        if ($e instanceof RoleDeniedException) {
+            flash()->error('Your role does not allow you to perform this action!');
+            return redirect()->back();
+        }
+
+        if ($e instanceof PermissionDeniedException) {
+            flash()->error('You do not have permission to perform this action!');
+            return redirect()->back();
+        }
+
+        if ($e instanceof LevelDeniedException) {
+            flash()->error('Your level does not allow you to perform this action!');
+            return redirect()->back();
+        }
+
+
 
         return parent::render($request, $e);
     }
