@@ -12,9 +12,11 @@ abstract class Controller extends BaseController
     use DispatchesJobs, ValidatesRequests;
 
     protected $loggedInUser;
+    protected $loggedInViaRememberMe;
     public function __construct()
     {
         $this->loggedInUser = Auth::User();
+        $this->loggedInViaRememberMe = Auth::viaRemember();
         view()->share('isSignedIn',Auth::check());
         view()->share('user',$this->loggedInUser);
     }

@@ -6,14 +6,15 @@ use App\Customer;
 use App\Http\Requests\EditUserProfileRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\NewUserRequest;
+use App\Order;
 use App\User;
 use Bican\Roles\Exceptions\PermissionDeniedException;
+use Bican\Roles\Models\Permission;
 use Bican\Roles\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Bican\Roles\Models\Permission;
-use Khill\Lavacharts\Laravel\LavachartsFacade as Lava;
-use Khill\Lavacharts\Lavacharts;
+
 
 class HomeController extends Controller
 {
@@ -25,12 +26,21 @@ class HomeController extends Controller
 
     public function home()
     {
+        if ($this->loggedInUser || $this->loggedInViaRememberMe) {
+            return redirect()->route('dashboard');
+        }
         return view('home');
     }
 
-    public function dashboard()
+    public function dashboard(Order $order, Customer $customer)
     {
-        return view('dashboard');
+        $orders = $order->dailySalesForChart();
+
+        return view('dashboard')
+            ->with('order_date', $orders->lists('order_date'))
+            ->with('daily_sales', $orders->lists('daily_sales'))
+            ->with('total_sales', $order->todaySalesTotalSale())
+            ->with('new_customers', $customer->newCustomersToday());
     }
 
     public function users()
@@ -154,9 +164,8 @@ class HomeController extends Controller
         return ['error' => 'An error occurred!'];
     }
 
-    public function demo()
+    public function demo(Order $order)
     {
-
         return generateQRCode('THC0001');
 //        $code = QrCode::size(150)->generate('THC0002');
 //        return $code;

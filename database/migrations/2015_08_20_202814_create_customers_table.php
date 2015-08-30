@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('email',255);
             $table->string('phone',20);
             $table->text('qrcode');
+            $table->timestamps();
             $table->softDeletes();
         });
 
