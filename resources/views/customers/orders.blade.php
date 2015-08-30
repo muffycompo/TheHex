@@ -22,7 +22,12 @@
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
                                 <td>{!! $order->order_amount !!}</td>
-                                <td>{!! link_to_route('order.print','Print',$order->id) !!}</td>
+                                <td>
+                                    <a href="{!! route('order.print',[$order->id]) !!}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-print"></span> Print
+                                    </a>
+
+                                </td>
                             </tr>
                         @endforeach
                     @else

@@ -32,7 +32,9 @@
          </div>
          <!--- Add User Field --->
          <div class="form-group">
-             {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+             <button type="submit" class="btn btn-primary">
+                 <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Update
+             </button>
          </div>
          {!! Form::hidden('user_id', $user->id) !!}
          {!! Form::close() !!}

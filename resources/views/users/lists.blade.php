@@ -7,6 +7,12 @@
 
          <div class="table-responsive">
              <table class="table table-striped table-bordered">
+                 <p class="text-right">
+                     <a href="{!! URL::route('auth.signup') !!}" class="btn btn-primary">
+                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New User
+                     </a>
+                 </p>
+
                  <thead>
                  <tr>
                      <th>Username</th>
@@ -28,7 +34,11 @@
                                 <td>{!! $user->email !!}</td>
                                 <td>{!! $user->phone !!}</td>
                                 <td>{!! $user->role->name !!}</td>
-                                <td>{!! link_to_route('user.edit','Edit',$user->id) !!}</td>
+                                <td>
+                                    <a href="{!! route('user.edit',[$user->id]) !!}" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-edit"></span> Edit
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     @else

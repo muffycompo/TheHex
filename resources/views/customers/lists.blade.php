@@ -7,6 +7,12 @@
 
          <div class="table-responsive">
              <table class="table table-striped table-bordered">
+                 <p class="text-right">
+                     <a href="{!! URL::route('customer.new') !!}" class="btn btn-primary">
+                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Customer
+                     </a>
+                 </p>
+
                  <thead>
                  <tr>
                      <th>THC</th>
@@ -29,12 +35,21 @@
                                 <td>{!! nairaFormater($customer->payment->account_balance) !!}</td>
                                 <td>{!! $customer->phone !!}</td>
                                 <td>
-                                    {!! link_to_route('customer.edit','Edit',$customer->id) !!} |
-                                    {!! link_to_route('customer.detail','Detail',$customer->id) !!} |
-                                    {!! link_to_route('customer.orderlist','Orders',$customer->id) !!}
+                                    <a href="{!! route('customer.edit',[$customer->id]) !!}" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-edit"></span> Edit
+                                    </a>
+                                    <a href="{!! route('customer.detail',[$customer->id]) !!}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-expand"></span> Detail
+                                    </a>
+                                    <a href="{!! route('customer.orderlist',[$customer->id]) !!}" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-credit-card"></span> Orders
+                                    </a>
                                     @role('admin')
-                                    | {!! link_to_route('customer.delete','Delete',$customer->id) !!}
+                                    <a href="{!! route('customer.delete',[$customer->id]) !!}" class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                                    </a>
                                     @endrole
+
                                </td>
                             </tr>
                         @endforeach

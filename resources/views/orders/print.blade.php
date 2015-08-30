@@ -74,10 +74,12 @@
                     </tbody>
                 </table>
                 <div class="text-center">
-                    <a href="javascript:if(window.print)window.print()" class="btn btn-success hidden-print">
-                        Print Receipt <span class="glyphicon glyphicon-print"></span>
+                    <a href="javascript:if(window.print)window.print()" class="btn btn-info hidden-print">
+                        <span class="glyphicon glyphicon-print"></span> Print
                     </a>
-                    <a href="{!! URL::previous() !!}" class="btn btn-danger hidden-print">Back</a>
+                    <a href="{!! URL::previous() !!}" class="btn btn-danger hidden-print">
+                        <span class="glyphicon glyphicon-arrow-left"></span> Back
+                    </a>
                 </div>
 
             </div>

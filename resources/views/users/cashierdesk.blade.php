@@ -64,7 +64,9 @@
                     </div>
                     <!--- Order Field --->
                     <div class="form-group">
-                        {!! Form::submit('Order', ['class' => 'btn btn-primary', 'id' => 'orderBtn']) !!}
+                        <button type="submit" class="btn btn-primary" id="orderBtn">
+                            <span class="glyphicon glyphicon-ok-circle"></span> Update
+                        </button>
                         {!! Form::hidden('customer_id',null,['id'=>'customerId']) !!}
                         <audio id="audioBeep"></audio>
                     </div>

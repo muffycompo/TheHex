@@ -71,7 +71,12 @@
          </div>
          <!--- Add Customer Field --->
          <div class="form-group">
-             {!! Form::submit('Add Customer', ['class' => 'btn btn-primary']) !!}
+             <button type="submit" class="btn btn-primary">
+                 <span class="glyphicon glyphicon-ok-circle"></span> Add Customer
+             </button>
+             <a href="{!! route('customer.list') !!}" class="btn btn-danger">
+                 <span class="glyphicon glyphicon-arrow-left"></span> Back
+             </a>
          </div>
      @if($errors->any())
              <div class="alert alert-danger alert-dismissible" role="alert">

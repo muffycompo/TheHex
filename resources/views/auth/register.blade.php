@@ -42,7 +42,12 @@
          </div>
          <!--- Add User Field --->
          <div class="form-group">
-             {!! Form::submit('Add User', ['class' => 'btn btn-primary']) !!}
+             <button type="submit" class="btn btn-primary">
+                 <span class="glyphicon glyphicon-ok-circle"></span> Add User
+             </button>
+             <a href="{!! route('user.list') !!}" class="btn btn-danger">
+                 <span class="glyphicon glyphicon-arrow-left"></span> Back
+             </a>
          </div>
          {!! Form::close() !!}
      </div>

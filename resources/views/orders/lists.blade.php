@@ -3,10 +3,15 @@
 @section('content')
  <div class="row">
      <h1>Order List</h1>
-     <div class="col-md-12">
 
+     <div class="col-md-12">
          <div class="table-responsive">
              <table class="table table-striped table-bordered">
+                 <p class="text-right">
+                     <a href="{!! URL::route('order.new') !!}" class="btn btn-primary">
+                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Order
+                     </a>
+                 </p>
                  <thead>
                  <tr>
                      <th>First Name</th>

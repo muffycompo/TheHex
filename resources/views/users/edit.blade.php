@@ -37,7 +37,12 @@
          </div>
          <!--- Add User Field --->
          <div class="form-group">
-             {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+             <button type="submit" class="btn btn-primary">
+                 <span class="glyphicon glyphicon-ok-circle"></span> Update
+             </button>
+             <a href="{!! route('user.list') !!}" class="btn btn-danger">
+                 <span class="glyphicon glyphicon-arrow-left"></span> Cancel
+             </a>
          </div>
          {!! Form::hidden('user_id', $userdetail->id) !!}
          {!! Form::close() !!}

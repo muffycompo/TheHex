@@ -22,7 +22,12 @@
          </div>
          <!--- Add Customer Field --->
          <div class="form-group">
-             {!! Form::submit('Order', ['class' => 'btn btn-primary']) !!}
+             <button type="submit" class="btn btn-primary">
+                 <span class="glyphicon glyphicon-ok-circle"></span> Order
+             </button>
+             <a href="{!! route('order.list') !!}" class="btn btn-danger">
+                 <span class="glyphicon glyphicon-arrow-left"></span> Back
+             </a>
          </div>
 
      </div>

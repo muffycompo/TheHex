@@ -43,10 +43,16 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>{!! link_to_route('dashboard','Dashboard') !!}</li>
+        <li>
+          <a href="{!! route('dashboard') !!}">
+            <span class="glyphicon glyphicon-th-large"></span>&nbsp;Dashboard
+          </a>
+        </li>
         @role('admin')
         <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-user"></span>&nbsp;Users
+          </a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('auth.signup','New User') !!}</li>
             <li>{!! link_to_route('user.list','User List') !!}</li>
@@ -54,7 +60,9 @@
           @endrole
         </li>
         <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Customers</a>
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Customers
+          </a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('customer.new','New Customer') !!}</li>
             <li>{!! link_to_route('cashierdesk','Cashier Desk') !!}</li>
@@ -62,7 +70,9 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders</a>
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-cutlery"></span>&nbsp;Orders
+          </a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('order.new','New Order') !!}</li>
             <li>{!! link_to_route('order.list','Order List') !!}</li>
@@ -70,7 +80,9 @@
         </li>
         @role('admin')
         <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rollovers</a>
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-book"></span>&nbsp;Rollovers
+          </a>
           <ul class="dropdown-menu">
             <li><a href="#">New Rollover</a></li>
             <li><a href="#">Rollover List</a></li>
@@ -82,9 +94,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{!! authUserFullname() !!} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>{!! link_to_route('user.get_profile','Profile',[$user->id]) !!}</li>
+            <li>
+              <a href="{!! route('user.get_profile',[$user->id]) !!}">
+                <span class="glyphicon glyphicon-cog"></span>&nbsp;Profile
+              </a>
+            </li>
             <li role="separator" class="divider"></li>
-            <li>{!! link_to_route('auth.logout','Logout') !!}</li>
+            <li>
+              <a href="{!! route('auth.logout') !!}">
+                <span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
