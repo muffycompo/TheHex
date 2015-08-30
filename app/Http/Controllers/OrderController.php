@@ -142,7 +142,7 @@ class OrderController extends Controller
         $delete = $order->whereId((int) $id)->delete();
         if($delete){
 //            ->increment('votes', 5);
-            $payment->where('customer_id',(int) $id)->increment('account_balance',$amount);
+            $payment->where('customer_id',(int) $customer_id)->increment('account_balance',$amount);
             flash()->success('Order #'. $id .' has been cancelled and '. nairaFormater($amount) .' refunded to ' . customerFullname($customer_id) . '!');
         } else {
             flash()->error('An error occurred while cancelling Order #' . $id . '!');

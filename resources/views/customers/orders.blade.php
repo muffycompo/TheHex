@@ -32,7 +32,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="3">No Orders Found!</td>
+                            <td colspan="4">No Orders Found!</td>
                         </tr>
                     @endif
 

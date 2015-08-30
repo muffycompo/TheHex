@@ -78,17 +78,17 @@
             <li>{!! link_to_route('order.list','Order List') !!}</li>
           </ul>
         </li>
-        @role('admin')
-        <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-book"></span>&nbsp;Rollovers
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">New Rollover</a></li>
-            <li><a href="#">Rollover List</a></li>
-          </ul>
-        </li>
-        @endrole
+        {{--@role('admin')--}}
+        {{--<li class="dropdown">--}}
+          {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">--}}
+            {{--<span class="glyphicon glyphicon-book"></span>&nbsp;Rollovers--}}
+          {{--</a>--}}
+          {{--<ul class="dropdown-menu">--}}
+            {{--<li><a href="#">New Rollover</a></li>--}}
+            {{--<li><a href="#">Rollover List</a></li>--}}
+          {{--</ul>--}}
+        {{--</li>--}}
+        {{--@endrole--}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

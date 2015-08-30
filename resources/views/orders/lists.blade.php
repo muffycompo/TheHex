@@ -34,9 +34,13 @@
                                 <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
                                 <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
                                 <td>
-                                    {!! link_to_route('order.print','Print',$order->id) !!}
+                                    <a href="{!! route('order.print',[$order->id]) !!}" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-print"></span> Print
+                                    </a>
                                     @role('admin')
-                                    | {!! link_to_route('order.cancel','Cancel',$order->id) !!}
+                                    <a href="{!! route('order.cancel',[$order->id]) !!}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                                    </a>
                                     @endrole
                                 </td>
                             </tr>

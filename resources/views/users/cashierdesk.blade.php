@@ -65,7 +65,7 @@
                     <!--- Order Field --->
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" id="orderBtn">
-                            <span class="glyphicon glyphicon-ok-circle"></span> Update
+                            <span class="glyphicon glyphicon-ok-circle"></span> Order
                         </button>
                         {!! Form::hidden('customer_id',null,['id'=>'customerId']) !!}
                         <audio id="audioBeep"></audio>
