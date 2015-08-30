@@ -7,6 +7,7 @@ use Bican\Roles\Exceptions\PermissionDeniedException;
 use Bican\Roles\Exceptions\RoleDeniedException;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -63,8 +64,6 @@ class Handler extends ExceptionHandler
             flash()->error('Your level does not allow you to perform this action!');
             return redirect()->back();
         }
-
-
 
         return parent::render($request, $e);
     }

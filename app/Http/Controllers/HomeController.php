@@ -12,6 +12,8 @@ use Bican\Roles\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Bican\Roles\Models\Permission;
+use Khill\Lavacharts\Laravel\LavachartsFacade as Lava;
+use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller
 {
@@ -137,13 +139,6 @@ class HomeController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function demo()
-    {
-        return generateQRCode('THC0001');
-//        $code = QrCode::size(150)->generate('THC0002');
-//        return $code;
-    }
-
     public function getCashierDesk()
     {
         return view('users.cashierdesk');
@@ -158,5 +153,14 @@ class HomeController extends Controller
         }
         return ['error' => 'An error occurred!'];
     }
+
+    public function demo()
+    {
+
+        return generateQRCode('THC0001');
+//        $code = QrCode::size(150)->generate('THC0002');
+//        return $code;
+    }
+
 
 }

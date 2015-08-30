@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ec0a3b281a465c153e5271d53b910d7",
+    "hash": "0050eeff0f8303f0295d71bff7f76268",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -302,6 +302,47 @@
                 "string"
             ],
             "time": "2014-12-20 21:24:13"
+        },
+        {
+            "name": "genealabs/laravel-caffeine",
+            "version": "0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeneaLabs/laravel-caffeine.git",
+                "reference": "9b77688d3bb4d1092b1fbcddb6d0999b31448fc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeneaLabs/laravel-caffeine/zipball/9b77688d3bb4d1092b1fbcddb6d0999b31448fc1",
+                "reference": "9b77688d3bb4d1092b1fbcddb6d0999b31448fc1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/routing": "^5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeneaLabs\\LaravelCaffeine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bronner",
+                    "email": "hello@genealabs.com"
+                }
+            ],
+            "description": "Keeping Your Laravel Forms Awake",
+            "time": "2015-08-25 00:30:16"
         },
         {
             "name": "jakub-onderka/php-console-color",

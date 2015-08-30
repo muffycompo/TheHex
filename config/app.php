@@ -144,6 +144,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
         /*
          * Add-on Service Providers
          */
@@ -151,6 +152,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Bican\Roles\RolesServiceProvider::class,
+        GeneaLabs\LaravelCaffeine\LaravelCaffeineServiceProvider::class,
 
     ],
 
