@@ -28,12 +28,12 @@
                     @if($users->count() > 0)
                         @foreach($users as $user)
                             <tr>
-                                <td>{!! $user->username !!}</td>
-                                <td>{!! $user->firstname !!}</td>
-                                <td>{!! $user->lastname !!}</td>
-                                <td>{!! $user->email !!}</td>
-                                <td>{!! $user->phone !!}</td>
-                                <td>{!! $user->role->name !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->username !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->firstname !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->lastname !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->email !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->phone !!}</td>
+                                <td style="vertical-align: middle;">{!! $user->role->name !!}</td>
                                 <td>
                                     <a href="{!! route('user.edit',[$user->id]) !!}" class="btn btn-default">
                                         <span class="glyphicon glyphicon-edit"></span> Edit

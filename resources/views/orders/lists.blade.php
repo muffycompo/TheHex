@@ -27,12 +27,12 @@
                     @if($orders->count() > 0)
                         @foreach($orders as $order)
                             <tr>
-                                <td>{!! isset($order->customer->firstname) ? $order->customer->firstname : 'Deleted' !!}</td>
-                                <td>{!! isset($order->customer->lastname) ? $order->customer->lastname : 'Deleted' !!}</td>
-                                <td>{!! isset($order->customer->phone) ? $order->customer->phone : 'Deleted' !!}</td>
-                                <td>{!! nairaFormater($order->order_amount) !!}</td>
-                                <td>{!! expandOrderCategoryType($order->order_category_id) !!}</td>
-                                <td>{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
+                                <td style="vertical-align: middle;">{!! isset($order->customer->firstname) ? $order->customer->firstname : 'Deleted' !!}</td>
+                                <td style="vertical-align: middle;">{!! isset($order->customer->lastname) ? $order->customer->lastname : 'Deleted' !!}</td>
+                                <td style="vertical-align: middle;">{!! isset($order->customer->phone) ? $order->customer->phone : 'Deleted' !!}</td>
+                                <td style="vertical-align: middle;">{!! nairaFormater($order->order_amount) !!}</td>
+                                <td style="vertical-align: middle;">{!! expandOrderCategoryType($order->order_category_id) !!}</td>
+                                <td style="vertical-align: middle;">{!! $order->created_at->format('d/m/Y h:i A') !!}</td>
                                 <td>
                                     <a href="{!! route('order.print',[$order->id]) !!}" class="btn btn-default">
                                         <span class="glyphicon glyphicon-print"></span> Print

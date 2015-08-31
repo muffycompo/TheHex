@@ -18,7 +18,12 @@
          <!--- Dob Field --->
          <div class="form-group">
              {!! Form::label('dob', 'Date of Birth:') !!}
-             {!! Form::text('dob', null, ['class' => 'form-control']) !!}
+             <div class='input-group date' id='dobpicker'>
+                 {!! Form::text('dob', null, ['class' => 'form-control']) !!}
+                 <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+             </div>
          </div>
          <!--- Gender Field --->
          <div class="form-group">
@@ -91,4 +96,18 @@
      </div>
      {!! Form::close() !!}
  </div>
+@stop
+
+@section('styles.header')
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
+@stop
+
+@section('scripts.footer')
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('#dobpicker').datetimepicker({format: 'DD/MM/YYYY'});
+        });
+    </script>
 @stop

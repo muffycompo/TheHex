@@ -18,7 +18,7 @@ class Order extends Model
     {
         return $this->belongsTo('App\Customer');
     }
-    
+
     public function dailySalesForChart()
     {
         return $this->select(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') AS order_date,
@@ -26,6 +26,7 @@ class Order extends Model
             ->groupBy('order_date')
             ->limit(7);
     }
+
     public function todaySalesTotalSale()
     {
         $today = Carbon::now()->format('d-m-Y');

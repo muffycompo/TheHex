@@ -57,7 +57,6 @@ class OrderController extends Controller
 
     }
 
-
     public function getCustomerNewOrder(Request $request, Order $order, Payment $payment)
     {
         if($request->ajax()){

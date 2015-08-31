@@ -36,6 +36,12 @@ get('admin/order/print/{id}',['as' => 'order.print', 'middleware' => 'role:admin
 get('admin/order/cancel/{id}',['as' => 'order.cancel', 'middleware' => 'role:admin', 'uses' => 'OrderController@getOrderCancel']);
 post('admin/order',['as' => 'order.post_new', 'middleware' => 'role:admin|cashier', 'uses' => 'OrderController@postNewOrder']);
 
+// Rollovers Routes
+get('admin/rollover/new',['as' => 'rollover.new', 'middleware' => 'role:admin', 'uses' => 'RolloverController@getNewRollover']);
+get('admin/rollovers',['as' => 'rollover.list', 'middleware' => 'role:admin', 'uses' => 'RolloverController@getRolloverList']);
+get('admin/rollover/cancel/{id}',['as' => 'rollover.cancel', 'middleware' => 'role:admin', 'uses' => 'RolloverController@getRolloverCancel']);
+post('admin/rollover',['as' => 'rollover.post_new', 'middleware' => 'role:admin', 'uses' => 'RolloverController@postNewRollover']);
+
 
 // Authentication routes...
 get('auth/login', ['as' => 'auth.signin', 'uses' => 'Auth\AuthController@getLogin']);

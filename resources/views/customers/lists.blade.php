@@ -28,12 +28,12 @@
                     @if($customers->count() > 0)
                         @foreach($customers as $customer)
                             <tr>
-                                <td>{!! $customer->thc !!}</td>
-                                <td>{!! $customer->firstname !!}</td>
-                                <td>{!! $customer->lastname !!}</td>
-                                <td>{!! expandGender($customer->profile->gender_id) !!}</td>
-                                <td>{!! nairaFormater($customer->payment->account_balance) !!}</td>
-                                <td>{!! $customer->phone !!}</td>
+                                <td style="vertical-align: middle;">{!! $customer->thc !!}</td>
+                                <td style="vertical-align: middle;">{!! $customer->firstname !!}</td>
+                                <td style="vertical-align: middle;">{!! $customer->lastname !!}</td>
+                                <td style="vertical-align: middle;">{!! expandGender($customer->profile->gender_id) !!}</td>
+                                <td style="vertical-align: middle;">{!! nairaFormater($customer->payment->account_balance) !!}</td>
+                                <td style="vertical-align: middle;">{!! $customer->phone !!}</td>
                                 <td>
                                     <a href="{!! route('customer.edit',[$customer->id]) !!}" class="btn btn-default">
                                         <span class="glyphicon glyphicon-edit"></span> Edit

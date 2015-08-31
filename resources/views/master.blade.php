@@ -18,6 +18,9 @@
   <link href="/css/navbar-static-top.css" rel="stylesheet">
   <link href="/css/sweetalert.css" rel="stylesheet">
   <link href="/css/dropzone.css" rel="stylesheet">
+
+  @yield('styles.header')
+  
   <link href="/css/style.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -78,17 +81,17 @@
             <li>{!! link_to_route('order.list','Order List') !!}</li>
           </ul>
         </li>
-        {{--@role('admin')--}}
-        {{--<li class="dropdown">--}}
-          {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">--}}
-            {{--<span class="glyphicon glyphicon-book"></span>&nbsp;Rollovers--}}
-          {{--</a>--}}
-          {{--<ul class="dropdown-menu">--}}
-            {{--<li><a href="#">New Rollover</a></li>--}}
-            {{--<li><a href="#">Rollover List</a></li>--}}
-          {{--</ul>--}}
-        {{--</li>--}}
-        {{--@endrole--}}
+        @role('admin')
+        <li class="dropdown">
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-book"></span>&nbsp;Rollovers
+          </a>
+          <ul class="dropdown-menu">
+            <li>{!! link_to_route('rollover.new','New Rollover') !!}</li>
+            <li>{!! link_to_route('rollover.list','Rollover List') !!}</li>
+          </ul>
+        </li>
+        @endrole
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
