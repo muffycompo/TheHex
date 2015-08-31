@@ -6,3 +6,4 @@ Homestead.json
 .idea/workspace.xml
 /public/customers/photos/*
 /public/customers/qrcodes/*
+/resources/assets/*

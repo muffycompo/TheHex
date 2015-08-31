@@ -2,26 +2,26 @@
 
 @section('content')
  <div class="row">
-     {!! Form::open(['route'=>'rollover.post_new']) !!}
-     <h1>New Rollover</h1>
+     {!! Form::open(['route'=>'customer.post_topup']) !!}
+     <h1>New Customer Top-Up</h1>
      <div class="col-md-6">
-         <!--- From THC Field --->
+         <!--- Customer THC Field --->
          <div class="form-group">
-             {!! Form::label('from_thc', 'From (THC):') !!}
-             {!! Form::text('from_thc', null, ['class' => 'form-control']) !!}
+             {!! Form::label('customer_thc', 'Customer THC:') !!}
+             {!! Form::text('customer_thc', null, ['class' => 'form-control']) !!}
          </div>
-         <!--- To THC Field --->
+         <!--- Top-Up Amount Field --->
          <div class="form-group">
-             {!! Form::label('to_thc', 'To (THC):') !!}
-             {!! Form::text('to_thc', null, ['class' => 'form-control']) !!}
+             {!! Form::label('topup_amount', 'Top-Up Amount (&#8358;):') !!}
+             {!! Form::text('topup_amount', null, ['class' => 'form-control']) !!}
          </div>
          <!--- Add Customer Field --->
          <div class="form-group">
              <button type="submit" class="btn btn-primary">
-                 <span class="glyphicon glyphicon-ok-circle"></span> Rollover
+                 <span class="glyphicon glyphicon-ok-circle"></span> Top Up
              </button>
-             <a href="{!! route('rollover.list') !!}" class="btn btn-danger">
-                 <span class="glyphicon glyphicon-arrow-left"></span> Back
+             <a href="{!! route('customer.list') !!}" class="btn btn-danger">
+                 <span class="glyphicon glyphicon-arrow-left"></span> Cancel
              </a>
          </div>
 

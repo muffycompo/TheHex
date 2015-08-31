@@ -95,13 +95,17 @@
                  </div>
                  {!! Form::close() !!}
              </div>
+             <div class="col-md-3"></div>
+             <div class="col-md-4" style="text-align: center;">
+                 <a href="javascript:if(window.print)window.print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span>&nbsp;Print</a>
+             </div>
          </div>
      </div>
  </div>
 @stop
 
 @section('scripts.footer')
-    <script src="/js/dropzone.js"></script>
+    <script src="/js/dropzone.min.js"></script>
     <script>
         Dropzone.options.customerPhotoForm = {
             paramName: 'photo',

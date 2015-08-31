@@ -7,6 +7,7 @@ use App\Order;
 use App\Payment;
 use App\CustomerProfile;
 use App\Http\Requests\NewCustomerRequest;
+use App\Http\Requests\NewTopUpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -24,6 +25,11 @@ class CustomerController extends Controller
     public function getNewCustomer()
     {
         return view('customers.new');
+    }
+
+    public function getNewTopUp()
+    {
+        return view('customers.topup');
     }
 
     public function postNewCustomer(NewCustomerRequest $request, Customer $customer, CustomerProfile $profile, Payment $payment)
@@ -156,4 +162,18 @@ class CustomerController extends Controller
         return $demo;
     }
 
+    public function postNewTopUp(NewTopUpRequest $request, Payment $payment)
+    {
+        $customer_id = thcToCustomerId($request->input('customer_thc'));
+        $topup_amount = (int) $request->input('topup_amount');
+
+        $topup = $payment->where('customer_id',$customer_id)->increment('account_balance',$topup_amount);
+
+        if($topup){
+            flash()->success(nairaFormater($topup_amount) . ' was added to ' . customerFullname($customer_id) .'\'s Account!');
+        } else {
+            flash()->error('An error occurred while topping up ' . customerFullname($customer_id) . '\'s Account!');
+        }
+        return redirect()->route('customer.list');
+    }
 }

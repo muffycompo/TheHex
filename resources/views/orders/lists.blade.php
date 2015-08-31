@@ -38,7 +38,7 @@
                                         <span class="glyphicon glyphicon-print"></span> Print
                                     </a>
                                     @role('admin')
-                                    <a href="{!! route('order.cancel',[$order->id]) !!}" class="btn btn-info">
+                                    <a href="{!! route('order.cancel',[$order->id]) !!}" class="btn btn-danger">
                                         <span class="glyphicon glyphicon-remove-circle"></span> Cancel
                                     </a>
                                     @endrole

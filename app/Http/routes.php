@@ -21,11 +21,13 @@ post('admin/user/new', ['as' => 'auth.register', 'middleware' => 'role:admin', '
 // Customers Routes
 get('admin/customer/new',['as' => 'customer.new', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@getNewCustomer']);
 get('admin/customers',['as' => 'customer.list', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@getCustomerList']);
+get('admin/customers/topup',['as' => 'customer.topup', 'middleware' => 'role:admin', 'uses' => 'CustomerController@getNewTopUp']);
 get('admin/customer/edit/{id}',['as' => 'customer.edit', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@getCustomerEdit']);
 get('admin/customer/detail/{id}',['as' => 'customer.detail', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@getCustomerDetail']);
 get('admin/customer/order/{id}',['as' => 'customer.orderlist', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@getCustomerOrder']);
 get('admin/customer/delete/{id}',['as' => 'customer.delete', 'middleware' => 'role:admin', 'uses' => 'CustomerController@getCustomerDelete']);
 post('admin/customer',['as' => 'customer.post_new', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@postNewCustomer']);
+post('admin/customers/topup',['as' => 'customer.post_topup', 'middleware' => 'role:admin', 'uses' => 'CustomerController@postNewTopUp']);
 post('admin/customer/edit',['as' => 'customer.post_edit', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@postCustomerEdit']);
 post('admin/customer/detail/{id}/photo',['as' => 'customer.photo', 'middleware' => 'role:admin|cashier', 'uses' => 'CustomerController@postCustomerDetailPhoto']);
 
