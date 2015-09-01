@@ -29,7 +29,7 @@
         {!! Form::open(['route'=>'auth.login','class'=>'form-signin']) !!}
 
         <p>
-            <img src="/images/logo.png" alt="Logo">
+            <img src="/images/logo.png" alt="Logo" class="img-responsive">
         </p>
 
         {!! Form::label('username','Username:',['class'=>'sr-only']) !!}
