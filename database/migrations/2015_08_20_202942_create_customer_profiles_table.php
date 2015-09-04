@@ -23,7 +23,6 @@ class CreateCustomerProfilesTable extends Migration
             $table->integer('customer_id')->unsigned();
             $table->integer('gender_id')->unsigned();
             $table->integer('state_id')->unsigned();
-            $table->timestamps();
         });
 
         Schema::table('customer_profiles',function(Blueprint $table){

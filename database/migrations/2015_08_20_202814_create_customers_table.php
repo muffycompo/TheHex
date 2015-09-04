@@ -17,8 +17,11 @@ class CreateCustomersTable extends Migration
             $table->string('thc',20);
             $table->string('firstname',45);
             $table->string('lastname',45);
-            $table->string('email',255)->unique();
+            $table->string('email',255);
             $table->string('phone',20);
+            $table->text('qrcode');
+            $table->timestamps();
+            $table->softDeletes();
         });
 
     }

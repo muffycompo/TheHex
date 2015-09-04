@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('account_balance')->length(20)->unsigned();
             $table->integer('customer_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::table('payments',function(Blueprint $table){
             $table->foreign('customer_id')->references('id')
